@@ -21,6 +21,7 @@ CLeftView::~CLeftView()
 }
 
 BEGIN_MESSAGE_MAP(CLeftView, CTreeView)
+	ON_NOTIFY_REFLECT(NM_RCLICK, &CLeftView::OnNMRclick)
 END_MESSAGE_MAP()
 
 
@@ -72,4 +73,10 @@ void CLeftView::OnInitialUpdate()
 	//m_TreeNum[1]=(DWORD)hPA;
 	//m_TreeNum[2]=(DWORD)hWA;
 	
+}
+
+void CLeftView::OnNMRclick(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	// TODO: Add your control notification handler code here
+	*pResult = 0;
 }

@@ -1,4 +1,5 @@
-
+#ifndef __PREEDEFINE_NETCONNECT__REDOS
+#define __PREEDEFINE_NETCONNECT__REDOS
 
 #include "afxsock.h"
 class CNetConnect
@@ -12,14 +13,19 @@ private:
 	CString m_strIPAddress;
 	UINT m_Port;
 	bool m_bInitialized;
+	bool m_connected;
+
+
 public:
 	void setTargetIpAddress(const CString &strIpAddress);
 	void setPortNum(int nPortNum);
 	bool initialize(void);
 	bool connect(void);
 	bool start(void);
-private:
-	bool m_connected;
-public:
 	int NetReceive(char* recBuff,int readNum);
+
+	
 };
+
+
+#endif
