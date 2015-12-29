@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GpsCoordTransfer", "..\..\G
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GpsObjectManager", "GpsObjectManager\GpsObjectManager.vcproj", "{23C6C59A-2E1B-4F46-A634-7E4C6436CD04}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GpsParser", "..\..\GpsParser\GpsParser.vcproj", "{FFBF9FD0-A4EA-418C-BBE3-37AAD7EFE9A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -25,6 +27,10 @@ Global
 		{23C6C59A-2E1B-4F46-A634-7E4C6436CD04}.Debug|Win32.Build.0 = Debug|Win32
 		{23C6C59A-2E1B-4F46-A634-7E4C6436CD04}.Release|Win32.ActiveCfg = Release|Win32
 		{23C6C59A-2E1B-4F46-A634-7E4C6436CD04}.Release|Win32.Build.0 = Release|Win32
+		{FFBF9FD0-A4EA-418C-BBE3-37AAD7EFE9A8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FFBF9FD0-A4EA-418C-BBE3-37AAD7EFE9A8}.Debug|Win32.Build.0 = Debug|Win32
+		{FFBF9FD0-A4EA-418C-BBE3-37AAD7EFE9A8}.Release|Win32.ActiveCfg = Release|Win32
+		{FFBF9FD0-A4EA-418C-BBE3-37AAD7EFE9A8}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

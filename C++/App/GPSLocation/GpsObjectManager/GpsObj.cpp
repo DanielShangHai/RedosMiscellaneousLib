@@ -10,6 +10,10 @@ GpsObj::GpsObj()
 , m_54X(0)
 , m_54Y(0)
 , m_54H(0)
+, m_pDataThread(NULL)
+, m_IpAddress(_T(""))
+, m_nPort(0)
+, m_recDataBuff(0)
 {
 	;
 }

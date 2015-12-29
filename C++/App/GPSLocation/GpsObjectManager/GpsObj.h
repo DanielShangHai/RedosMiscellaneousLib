@@ -19,4 +19,8 @@ private:
 	double m_54X;
 	double m_54Y;
 	double m_54H;
+	CWinThread* m_pDataThread;
+	CString m_IpAddress;
+	long m_nPort;
+	char m_recDataBuff;
 };
