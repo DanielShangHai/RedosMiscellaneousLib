@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GPSLocation", "GPSLocation\GPSLocation.vcproj", "{3746249B-FC08-4A7E-8D69-9794EE00D18C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GpsCoordTransfer", "..\..\GpsCoordTransfer\GpsCoordTransfer.vcproj", "{3F07DDE2-280B-493C-B2F2-E7A79D40B3E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3746249B-FC08-4A7E-8D69-9794EE00D18C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3746249B-FC08-4A7E-8D69-9794EE00D18C}.Debug|Win32.Build.0 = Debug|Win32
+		{3746249B-FC08-4A7E-8D69-9794EE00D18C}.Release|Win32.ActiveCfg = Release|Win32
+		{3746249B-FC08-4A7E-8D69-9794EE00D18C}.Release|Win32.Build.0 = Release|Win32
+		{3F07DDE2-280B-493C-B2F2-E7A79D40B3E9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3F07DDE2-280B-493C-B2F2-E7A79D40B3E9}.Debug|Win32.Build.0 = Debug|Win32
+		{3F07DDE2-280B-493C-B2F2-E7A79D40B3E9}.Release|Win32.ActiveCfg = Release|Win32
+		{3F07DDE2-280B-493C-B2F2-E7A79D40B3E9}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
