@@ -28,6 +28,7 @@ END_MESSAGE_MAP()
 
 
 // CGPSLocationApp construction
+ULONG_PTR gdiplusToken;
 
 CGPSLocationApp::CGPSLocationApp()
 {
@@ -113,6 +114,12 @@ BOOL CGPSLocationApp::InitInstance()
 	//  In an SDI app, this should occur after ProcessShellCommand
 	// Enable drag/drop open
 	m_pMainWnd->DragAcceptFiles();
+
+	//GDI+资源初始化
+	GdiplusStartupInput gdiplusStartupInput;
+	GdiplusStartup(&gdiplusToken,&gdiplusStartupInput,NULL);
+
+
 	return TRUE;
 }
 
@@ -158,3 +165,10 @@ void CGPSLocationApp::OnAppAbout()
 
 // CGPSLocationApp message handlers
 
+
+int CGPSLocationApp::ExitInstance()
+{
+	// TODO: Add your specialized code here and/or call the base class
+    GdiplusShutdown(gdiplusToken);
+	return CWinApp::ExitInstance();
+}

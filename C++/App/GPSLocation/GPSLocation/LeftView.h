@@ -27,6 +27,8 @@ private:
 	CTreeCtrl* m_pTreeCtrl;
 public:
 	afx_msg void OnNMRclick(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	int m_testNum;
 };
 
 

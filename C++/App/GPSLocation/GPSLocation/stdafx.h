@@ -60,7 +60,8 @@
 #include <afxdb.h>        // ODBC
 #include <afxcview.h>
 
-
+#include <gdiplus.h>
+using namespace Gdiplus;
 
 #ifdef _UNICODE
 #if defined _M_IX86

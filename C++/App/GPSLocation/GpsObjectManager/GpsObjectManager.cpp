@@ -19,3 +19,22 @@ GpsObjectManager* GpsObjectManager::instance()
 
 	return &theInstance;
 }
+bool GpsObjectManager::AddGpsObj(long Id)
+{
+	return m_pImpl->AddGpsObj(Id);
+}
+
+bool GpsObjectManager::DelGpsObj(long Id)
+{
+	return m_pImpl->DelGpsObj(Id);
+}
+
+GpsObj* GpsObjectManager::getGpsObject(long Id)
+{
+	return m_pImpl->getGpsObject(Id);
+}
+
+bool GpsObjectManager::initialise(void)
+{
+	return true;
+}

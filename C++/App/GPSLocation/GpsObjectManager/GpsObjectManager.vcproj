@@ -39,8 +39,9 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
+				AdditionalOptions="/wd4430"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\GPSLocation\"
+				AdditionalIncludeDirectories="..\GPSLocation\;..\..\..\GPSParser;&quot;N:\Work\RedosMiscellaneous\RedosMiscellaneousLib\C++\GpsCoordTransfer&quot;;..\..\..\GpsCoordTransfer"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"

@@ -1,0 +1,54 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: MyCoordTransfer - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/MyCoordTransfer.res" /d "_DEBUG" "E:\工作\恩里克\工程船软件V1.0Release代码（不要修改这个）\source\Src\MyCoordTransfer\MyCoordTransfer.rc"" 
+Creating temporary file "D:\DOCUME~1\DANIEL~1\LOCALS~1\Temp\RSP7.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /FR"Debug/" /Fp"Debug/MyCoordTransfer.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\工作\恩里克\工程船软件V1.0Release代码（不要修改这个）\source\Src\MyCoordTransfer\MyCoordTransfer.cpp"
+"E:\工作\恩里克\工程船软件V1.0Release代码（不要修改这个）\source\Src\MyCoordTransfer\MyCoordTransferDlg.cpp"
+]
+Creating command line "cl.exe @D:\DOCUME~1\DANIEL~1\LOCALS~1\Temp\RSP7.tmp" 
+Creating temporary file "D:\DOCUME~1\DANIEL~1\LOCALS~1\Temp\RSP8.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /FR"Debug/" /Fp"Debug/MyCoordTransfer.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\工作\恩里克\工程船软件V1.0Release代码（不要修改这个）\source\Src\MyCoordTransfer\StdAfx.cpp"
+]
+Creating command line "cl.exe @D:\DOCUME~1\DANIEL~1\LOCALS~1\Temp\RSP8.tmp" 
+Creating temporary file "D:\DOCUME~1\DANIEL~1\LOCALS~1\Temp\RSP9.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/MyCoordTransfer.pdb" /debug /machine:I386 /out:"Debug/MyCoordTransfer.exe" /pdbtype:sept 
+".\Debug\MyCoordTransfer.obj"
+".\Debug\MyCoordTransferDlg.obj"
+".\Debug\StdAfx.obj"
+".\Debug\MyCoordTransfer.res"
+]
+Creating command line "link.exe @D:\DOCUME~1\DANIEL~1\LOCALS~1\Temp\RSP9.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+MyCoordTransfer.cpp
+MyCoordTransferDlg.cpp
+E:\工作\恩里克\工程船软件V1.0Release代码（不要修改这个）\source\Src\MyCoordTransfer\MyCoordTransferDlg.cpp(209) : warning C4101: 'x' : unreferenced local variable
+E:\工作\恩里克\工程船软件V1.0Release代码（不要修改这个）\source\Src\MyCoordTransfer\MyCoordTransferDlg.cpp(210) : warning C4101: 'y' : unreferenced local variable
+E:\工作\恩里克\工程船软件V1.0Release代码（不要修改这个）\source\Src\MyCoordTransfer\MyCoordTransferDlg.cpp(211) : warning C4101: 'z' : unreferenced local variable
+Generating Code...
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/MyCoordTransfer.bsc"  ".\Debug\StdAfx.sbr" ".\Debug\MyCoordTransfer.sbr" ".\Debug\MyCoordTransferDlg.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+MyCoordTransfer.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

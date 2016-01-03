@@ -1,6 +1,9 @@
 #pragma once
 
 #include "GpsObjManagerImpl.h"
+#include "GpsObj.h"
+class GpsObjManagerImpl;
+class GpsObj;
 
 class GpsObjectManager
 {
@@ -19,4 +22,9 @@ public:
 
 private:
 	GpsObjManagerImpl* m_pImpl;
+public:
+	bool AddGpsObj(long Id);
+	bool DelGpsObj(long Id);
+	GpsObj* getGpsObject(long Id);
+	bool initialise(void);
 };

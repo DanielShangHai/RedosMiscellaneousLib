@@ -6,6 +6,9 @@
 #include "LeftView.h"
 #include "MainFrm.h"
 #include "GpsObjLocationView.h"
+#include "GpsObj.h"
+#include "GpsObjectManager.h"
+#include "globalobjectManager.h"
 
 
 #ifdef _DEBUG
@@ -13,12 +16,17 @@
 #endif
 
 
+//const CString IP_Address1 = _T("222.73.198.140");
+const CString IP_Address1 = _T("192.168.1.103");
+const long IP_Port = 6011;
+
 // CMainFrame
 
 IMPLEMENT_DYNCREATE(CMainFrame, CFrameWnd)
 
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_WM_CREATE()
+	ON_COMMAND(ID_START, &CMainFrame::OnStart)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -122,6 +130,32 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 		m_wndSplitter.DestroyWindow();
 		return FALSE;
 	}
-
+   
 	//return CFrameWnd::OnCreateClient(lpcs, pContext);
+}
+
+void CMainFrame::OnStart()
+{
+	// TODO: Add your command handler code here
+	AfxSocketInit();
+	WSADATA Ws;
+	if ( WSAStartup(MAKEWORD(2,2), &Ws) != 0 )
+	{
+		cout<<"Init Windows Socket Failed::"<<GetLastError()<<endl;
+		return;
+	}
+	GpsObjectManager::instance()->initialise();
+	GpsObjectManager::instance()->AddGpsObj(1);
+	GpsObjectManager::instance()->AddGpsObj(2);
+	GpsObjectManager::instance()->getGpsObject(1)->setNetParameters(IP_Address1,IP_Port,false);
+	GpsObjectManager::instance()->getGpsObject(1)->StartDataThread(0);
+
+
+	//GpsObjectManager::instance()->getGpsObject(2)->setNetParameters("222.73.198.140",6011);
+	//GpsObjectManager::instance()->getGpsObject(2)->StartDataThread(0);
+
+
+	//GpsObjectManager::instance()->getGpsObject(2)->setNetParameters("222.73.198.140",6011);
+	globalobjectManager::instance()->enableStartDraw(true);
+	MessageBox(_T("Æô¶¯"));
 }
