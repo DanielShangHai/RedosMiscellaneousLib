@@ -6,17 +6,18 @@
 
 class GpsObj
 {
-	friend::CDGpsServerManager;
+friend class DGpsServerManager;
 public:
 	GpsObj(void);
 	~GpsObj(void);
 	static unsigned WINAPI DataThreadFunction(void *arg);
     void *m_ManagerHandle;
     bool m_running;
-private:
+
 	SOCKADDR_IN m_clntAddr;
 	SOCKET m_hClntSock;
 	HANDLE m_DataThread;
+	HANDLE m_hSocketMutex;
 	
 public:
 	double m_posLongitude;
@@ -36,4 +37,7 @@ public:
 	void setLinkedPort(long nPort);
 	unsigned char m_recDataBuff[1024];
 	unsigned int m_unprocessDataLen;
+
+	int SendDataToGpsTerminal(char* dataBuff, int len);
+	int m_PosQuality;
 };

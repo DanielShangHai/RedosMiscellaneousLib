@@ -22,6 +22,7 @@ GpsObj::GpsObj()
 , m_nPort(0)
 , m_threadstop(true)
 , m_unprocessDataLen(0)
+, m_PosQuality(0)
 {
 	m_pDataThread = AfxBeginThread(DataCollectThreadFun, this, THREAD_PRIORITY_NORMAL, 0, CREATE_SUSPENDED, NULL);
 }
@@ -78,7 +79,8 @@ bool GpsObj::setNetParameters(const CString &ipAddress, long port,bool IsServer)
 UINT GpsObj::DataCollectThreadFun(LPVOID pParam)
 {
 	GpsObj* lpLocalGps = (GpsObj*)pParam;
-
+	
+    int ObjSel = 0;
    // CSocket localSocket;
    // localSocket.Attach(lpLocalGps->m_lpNetConnect->m_socketForrAttach);
 	char buff[2];
@@ -91,7 +93,7 @@ UINT GpsObj::DataCollectThreadFun(LPVOID pParam)
 	buff[1] = 0x5A;
     while(!(lpLocalGps->m_threadstop))
     {
-		int getDataLength = lpLocalGps->m_lpNetConnect->NetReceive(GetDataBuff,200);
+		int getDataLength = lpLocalGps->m_lpNetConnect->NetReceive(GetDataBuff,256);
        // lpLocalGps->m_lpNetConnect->NetSend(buff,2); lpLocalGps->m_recDataBuff
        memcpy(&(lpLocalGps->m_recDataBuff[lpLocalGps->m_unprocessDataLen]),GetDataBuff,getDataLength);
 	   lpLocalGps->m_unprocessDataLen+=getDataLength;
@@ -99,7 +101,7 @@ UINT GpsObj::DataCollectThreadFun(LPVOID pParam)
 	   do 
 	   {
 	   	   int pos  = GPSParserObj.findPrococolStringHead(lpLocalGps->m_recDataBuff,lpLocalGps->m_unprocessDataLen);
-		   int pos2 = GPSParserObj.findPrococolStringHead(&lpLocalGps->m_recDataBuff[1],lpLocalGps->m_unprocessDataLen-1);
+		   int pos2 = GPSParserObj.findPrococolStringHead(&lpLocalGps->m_recDataBuff[1],lpLocalGps->m_unprocessDataLen-1)+1;
 		   if (pos == lpLocalGps->m_unprocessDataLen) //not found
 		   {
 			   if (lpLocalGps->m_unprocessDataLen>=GPSParserObj.getProtocolHeadLength())
@@ -132,39 +134,117 @@ UINT GpsObj::DataCollectThreadFun(LPVOID pParam)
 				   break;
 			   }
 			   char databuff[32];
+               memcpy(databuff,&(lpLocalGps->m_recDataBuff[GPSParserObj.getProtocolHeadLength()+4]),6);
+			   if(databuff[5]&0x01!=0)
+			   {
+			     ObjSel = 0;
+			   }
+			   else
+			   {
+                  ObjSel = 1;
+			   }
+
 			   memcpy(databuff,&(lpLocalGps->m_recDataBuff[GPSParserObj.getProtocolHeadLength()+GPSParserObj.getMessageInfoLength()+15]),16);
                double longitude = lpLocalGps->GPGGALangAndLatit(databuff,16);
-               lpLocalGps->m_posLongitude = longitude;
+			   if (ObjSel)
+			   {
+				   lpLocalGps->m_posLongitude2 = longitude;
+			   }
+			   else
+			   {
+                   lpLocalGps->m_posLongitude = longitude;
+			   }
+              
 			   memcpy(databuff,&(lpLocalGps->m_recDataBuff[GPSParserObj.getProtocolHeadLength()+GPSParserObj.getMessageInfoLength()+15+16]),16);
 			   double latitude = lpLocalGps->GPGGALangAndLatit(databuff,16);
-               lpLocalGps->m_posLatitude = latitude;
+               
+			   if (ObjSel)
+			   {
+				   lpLocalGps->m_posLatitude2 = latitude;
+			   }
+			   else
+			   {
+				   lpLocalGps->m_posLatitude = latitude;
+			   }
+
+
 			   memcpy(databuff,&(lpLocalGps->m_recDataBuff[GPSParserObj.getProtocolHeadLength()+GPSParserObj.getMessageInfoLength()+15+16+16]),16);			  
 			   databuff[16] = 0x00;
                double height1 = atof(databuff);
-               lpLocalGps->m_posHeightOnSeaLevel = height1;
+               
+			   if (ObjSel)
+			   {
+				   lpLocalGps->m_posHeightOnSeaLevel2 = height1;
+			   }
+			   else
+			   {
+				   lpLocalGps->m_posHeightOnSeaLevel = height1;
+			   }
 
 
 			   memcpy(databuff,&(lpLocalGps->m_recDataBuff[GPSParserObj.getProtocolHeadLength()+GPSParserObj.getMessageInfoLength()+15+16+16+16]),8);
 			   databuff[8] = 0x00;
 			   int tempDegree = atof(databuff);
-			   lpLocalGps->m_54DirectorAngle = 3.14*((double)tempDegree)/(180.0);
+			   
+			   if (ObjSel)
+			   {
+				   lpLocalGps->m_54DirectorAngle2 = 3.14*((double)tempDegree)/(180.0);
+			   }
+			   else
+			   {
+				   lpLocalGps->m_54DirectorAngle = 3.14*((double)tempDegree)/(180.0);
+			   }
+
+			   char QualityByte = lpLocalGps->m_recDataBuff[GPSParserObj.getProtocolHeadLength()+GPSParserObj.getMessageInfoLength()+99];
+			   char byteBit = 0x01;
+			   for (int i=0;i<6;i++)
+			   {
+				   if (QualityByte&byteBit)
+				   {
+					   
+					   if (ObjSel)
+					   {
+						   lpLocalGps->m_PosQuality2 = i;
+					   }
+					   else
+					   {
+						   lpLocalGps->m_PosQuality = i;
+					   }
+					   break;
+				   }
+				   byteBit<<1;
+			   }
 
                //memcpy(databuff,&(lpLocalGps->m_recDataBuff[GPSParserObj.getProtocolHeadLength()+GPSParserObj.getMessageInfoLength()+15+16+16+16+24]),2);
 			   //int tempDegree = (int)(databuff[0])<<8+databuff[1];
                //lpLocalGps->m_54DirectorAngle = 3.14*((double)tempDegree)/(100.0*180.0);
                GpsCoordTransfer cordTransfer;
 			   cordTransfer.setCoordSystemSel(C_54_SYSTEM);
+			   cordTransfer.setTransferParameter(-1277560,39731830,0,1);
 			   double flat_x,flat_y,flat_h;
                flat_x = 0.0;
 			   flat_y = 0.0;
 			   flat_h = 0.0;
 			   cordTransfer.BLH2XYZ(latitude, longitude, height1, flat_x, flat_y, flat_h);
                            //.BLH2XYZ(latitude, longitude, height1, out flat_X, out flat_Y, out flat_H);
-               lpLocalGps->m_54X = flat_x;
-               lpLocalGps->m_54Y = flat_y;
-               lpLocalGps->m_54H = flat_h;              
+             
+			   if (ObjSel)
+			   {
+				   lpLocalGps->m_54X2 = flat_x;
+				   lpLocalGps->m_54Y2 = flat_y;
+				   lpLocalGps->m_54H2 = flat_h; 
+			   }
+			   else
+			   {
+				   lpLocalGps->m_54X = flat_x;
+				   lpLocalGps->m_54Y = flat_y;
+				   lpLocalGps->m_54H = flat_h; 
+			   }
 
-			   memcpy(lpLocalGps->m_recDataBuff,&(lpLocalGps->m_recDataBuff[wholeMessageLen]),wholeMessageLen);
+
+
+			   memcpy(lpLocalGps->m_recDataBuff,&(lpLocalGps->m_recDataBuff[wholeMessageLen]),lpLocalGps->m_unprocessDataLen-wholeMessageLen);
+			   lpLocalGps->m_unprocessDataLen-=wholeMessageLen;
 		   }
 		   else  //message not complete
 		   {

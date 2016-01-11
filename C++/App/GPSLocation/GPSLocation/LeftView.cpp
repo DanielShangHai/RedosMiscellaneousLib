@@ -4,8 +4,10 @@
 #include "stdafx.h"
 #include "GPSLocation.h"
 #include "LeftView.h"
-
-
+#include "GpsObj.h"
+#include "GpsObjectManager.h"
+#include "globalobjectManager.h"
+const double _PIvalue = 3.1415926535897932384626433832795;
 // CLeftView
 
 
@@ -105,57 +107,113 @@ void CLeftView::OnTimer(UINT_PTR nIDEvent)
 	// the current item
 	HTREEITEM    tiItem= tTree.GetNextItem(TVGN_ROOT,TVGN_ROOT);
 	long	     lCurrentData;
+
+	GpsObj* terminal1 = GpsObjectManager::instance()->getGpsObject(1);
+	GpsObj* terminal2 = GpsObjectManager::instance()->getGpsObject(2);
     switch(nIDEvent)
 	{
 	case ID_TIMER_FLASH_POS:
-
-
- 
-		while (tiItem)
-		{
-			tTree.Expand(tiItem,TVE_EXPAND);
-
-			lCurrentData = (long)tTree.GetItemData(tiItem);
-			CString aa;
-			
-            switch(lCurrentData)
+        if (globalobjectManager::instance()->enabledStartDraw())
+        {
+ 			while (tiItem)
 			{
-			case  0x100:
-				aa.Format(_T("´¬Ö»1_%d"),m_testNum%10);
-				tTree.SetItemText(tiItem,aa);
-				break;
-			case  0x101:
-				aa.Format(_T("×´Ì¬_%d"),m_testNum%10);
-				tTree.SetItemText(tiItem,aa);
-				break;
-			case  0x102:
-				aa.Format(_T("¾­Î³¶È_%d"),m_testNum%10);
-				tTree.SetItemText(tiItem,aa);
-				break;
-			case  0x103:
-				aa.Format(_T("×ø±êÖµ_%d"),m_testNum%10);
-				tTree.SetItemText(tiItem,aa);
-				break;
-			case  0x200:
-				aa.Format(_T("´¬Ö»2_%d"),m_testNum%10);
-				tTree.SetItemText(tiItem,aa);
-				break;
-			case  0x201:
-				aa.Format(_T("×´Ì¬_%d"),m_testNum%10);
-				tTree.SetItemText(tiItem,aa);
-				break;
-			case  0x202:
-				aa.Format(_T("¾­Î³¶È_%d"),m_testNum%10);
-				tTree.SetItemText(tiItem,aa);
-				break;
-			case  0x203:
-				aa.Format(_T("×ø±êÖµ_%d"),m_testNum%10);
-				tTree.SetItemText(tiItem,aa);
-				break;
+				tTree.Expand(tiItem,TVE_EXPAND);
+
+				lCurrentData = (long)tTree.GetItemData(tiItem);
+				CString aa;
+				
+				switch(lCurrentData)
+				{
+				case  0x100:
+					//aa.Format(_T("´¬Ö»1_%d"),m_testNum%10);
+					aa.Format(_T("´¬Ö»1"));
+					tTree.SetItemText(tiItem,aa);
+					break;
+				case  0x101:
+					//aa.Format(_T("×´Ì¬_%d"),m_testNum%10);
+		            switch(terminal1->m_PosQuality)
+					{
+					case 0:
+						aa.Format(_T("×´Ì¬£ºÎ´½âËã"));
+						break;
+					case 1:
+						aa.Format(_T("×´Ì¬£ºµ¥µã"));
+						break;
+					case 2:
+						aa.Format(_T("×´Ì¬£ºÎ±¾à²î·Ö"));
+						break;
+					case 3:
+						aa.Format(_T("×´Ì¬£ºÎ´½âËã"));
+						break;
+					case 4:
+						aa.Format(_T("×´Ì¬£º¹Ì¶¨½â"));
+						break;
+					case 5:
+						aa.Format(_T("×´Ì¬£º¸¡µã½â"));
+						break;
+					default:
+						aa.Format(_T("×´Ì¬£ºÎ´½âËã"));
+						break;
+					}
+					
+					tTree.SetItemText(tiItem,aa);
+					break;
+				case  0x102:
+					aa.Format(_T("¾­Î³¶È_%.4f E %.4f N"),180*terminal1->m_posLongitude/_PIvalue,180*terminal1->m_posLatitude/_PIvalue);
+					tTree.SetItemText(tiItem,aa);
+					break;
+				case  0x103:
+					aa.Format(_T("×ø±êÖµ_X: %.2f Y: %.2f H: %.2f"),terminal1->m_54X,terminal1->m_54Y,terminal1->m_54H);
+					tTree.SetItemText(tiItem,aa);
+					break;
+				case  0x200:
+					//aa.Format(_T("´¬Ö»1_%d"),m_testNum%10);
+					aa.Format(_T("´¬Ö»2"));
+					tTree.SetItemText(tiItem,aa);
+					break;
+				case  0x201:
+					//aa.Format(_T("×´Ì¬"));
+					switch(terminal1->m_PosQuality2)
+					{
+					case 0:
+						aa.Format(_T("×´Ì¬£ºÎ´½âËã"));
+						break;
+					case 1:
+						aa.Format(_T("×´Ì¬£ºµ¥µã"));
+						break;
+					case 2:
+						aa.Format(_T("×´Ì¬£ºÎ±¾à²î·Ö"));
+						break;
+					case 3:
+						aa.Format(_T("×´Ì¬£ºÎ´½âËã"));
+						break;
+					case 4:
+						aa.Format(_T("×´Ì¬£º¹Ì¶¨½â"));
+						break;
+					case 5:
+						aa.Format(_T("×´Ì¬£º¸¡µã½â"));
+						break;
+					default:
+						aa.Format(_T("×´Ì¬£ºÎ´½âËã"));
+						break;
+					}
+					tTree.SetItemText(tiItem,aa);
+					break;
+				case  0x202:
+					//aa.Format(_T("¾­Î³¶È_%.4f E %.4f N"),180*terminal2->m_posLongitude/_PIvalue,180*terminal2->m_posLatitude/_PIvalue);
+					aa.Format(_T("¾­Î³¶È_%.4f E %.4f N"),180*terminal1->m_posLongitude2/_PIvalue,180*terminal1->m_posLatitude2/_PIvalue);
+					tTree.SetItemText(tiItem,aa);
+					break;
+				case  0x203:
+					//aa.Format(_T("×ø±êÖµ_X: %.2f Y: %.2f H: %.2f"),terminal2->m_54X,terminal2->m_54Y,terminal2->m_54H);
+					aa.Format(_T("×ø±êÖµ_X: %.2f Y: %.2f H: %.2f"),terminal1->m_54X2,terminal1->m_54Y2,terminal1->m_54H2);
+					tTree.SetItemText(tiItem,aa);
+					break;
+				}
+				tiItem= tTree.GetNextItem(tiItem,TVGN_NEXTVISIBLE);
 			}
-			tiItem= tTree.GetNextItem(tiItem,TVGN_NEXTVISIBLE);
+			m_testNum++;
 		}
-		m_testNum++;
 		break;
 	default:
 		break;

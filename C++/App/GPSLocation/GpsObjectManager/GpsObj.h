@@ -27,7 +27,21 @@ public:
 	double m_54Y;
 	double m_54H;
 	double m_54DirectorAngle;
+	int m_PosQuality;
 	
+
+	double m_posLongitude2;
+	double m_posLatitude2;
+	double m_posHeightOnSeaLevel2;
+	char m_LongitudeChar2;
+	char m_LatitudeChar2;
+	double m_54X2;
+	double m_54Y2;
+	double m_54H2;
+	double m_54DirectorAngle2;
+	int m_PosQuality2;
+
+
 	CString m_IpAddress;
 	long m_nPort;
 	
@@ -43,4 +57,5 @@ public:
 	bool StartDataThread(int sel);
 	int m_unprocessDataLen;
 	double GPGGALangAndLatit(char* buff, int len);
+	
 };

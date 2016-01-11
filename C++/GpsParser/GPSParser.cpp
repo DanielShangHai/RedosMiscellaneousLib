@@ -101,7 +101,7 @@ int CGPSParser::ProcessProtocolData(char* buff, int length)
 	}
 	int messageID,messageLength;
     messageID = ((int)buff[1])<<8+(int)buff[2];
-	messageLength = ((int)buff[3])<<8+(int)buff[4];
+	messageLength = (((int)buff[3])<<8)+(int)buff[4];
 	messageLength &= 0x03FF;
 	unsigned char TerminalID[6];
 	unsigned char packetMode = buff[3]&0x20;

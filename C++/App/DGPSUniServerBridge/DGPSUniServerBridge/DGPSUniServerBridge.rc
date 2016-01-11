@@ -45,8 +45,9 @@ FONT 9, "宋体", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "确定",IDOK,531,7,50,16
     PUSHBUTTON      "取消",IDCANCEL,531,25,50,16
-    EDITTEXT        IDC_EDIT2,27,147,531,146,ES_AUTOHSCROLL
-    PUSHBUTTON      "Start",IDC_START,31,17,113,34
+    EDITTEXT        IDC_REC,27,147,531,146,ES_MULTILINE | ES_AUTOHSCROLL
+    PUSHBUTTON      "Start",IDC_START,468,45,113,34
+    CONTROL         "",IDC_TERMINAL_LIST,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,29,41,336,90
 END
 
 
@@ -167,8 +168,8 @@ BEGIN
     "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
     "LANGUAGE 4, 2\r\n"
     "#pragma code_page(936)\r\n"
-    "#include ""res\\DGPSUniServerBridge.rc2""  // 非 Microsoft Visual C++ 编辑的资源\r\n"
-    "#include ""afxres.rc""     // 标准组件\r\n"
+    "#include ""res\\DGPSUniServerBridge.rc2""  // ? Microsoft Visual C++ ?????\r\n"
+    "#include ""afxres.rc""     // ????\r\n"
     "#endif\r\n"
     "\0"
 END
@@ -202,8 +203,8 @@ IDR_MAINFRAME           ICON                    "res\\DGPSUniServerBridge.ico"
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
 LANGUAGE 4, 2
 #pragma code_page(936)
-#include "res\DGPSUniServerBridge.rc2"  // ·? Microsoft Visual C++ ±à?-μ?×ê?′
-#include "afxres.rc"     // ±ê×?×é?t
+#include "res\DGPSUniServerBridge.rc2"  // ? Microsoft Visual C++ ?????
+#include "afxres.rc"     // ????
 #endif
 
 /////////////////////////////////////////////////////////////////////////////

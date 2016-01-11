@@ -2,7 +2,11 @@
 //
 
 #pragma once
+#include "afxcmn.h"
 
+
+#define WM_GET_TERMINAL_DATA               (WM_USER + 5)  // 
+#define WM_GET_TERMINAL_DATA_2             (WM_USER + 6)  // 
 
 // CDGPSUniServerBridgeDlg ¶Ô»°¿ò
 class CDGPSUniServerBridgeDlg : public CDialog
@@ -30,4 +34,14 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedStart();
+	afx_msg LRESULT OnRecTerminalData(WPARAM wparam, LPARAM lparam);
+	afx_msg LRESULT OnRecTerminalData2(WPARAM wparam, LPARAM lparam);
+	CListCtrl m_TerminalList;
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	void ReDrawList(void);
+	CString m_RecCstringT1;
+	CString m_RecCstringT2;
+	int m_ShowSel;
+	CString m_ShowRec;
+	afx_msg void OnNMClickTerminalList(NMHDR *pNMHDR, LRESULT *pResult);
 };

@@ -17,8 +17,9 @@
 
 
 //const CString IP_Address1 = _T("222.73.198.140");
-const CString IP_Address1 = _T("192.168.1.103");
-const long IP_Port = 6011;
+const CString IP_Address1 = _T("127.0.0.1");
+const long IP_Port = 6014;
+const long IP_Port2 = 6015;
 
 // CMainFrame
 
@@ -27,6 +28,7 @@ IMPLEMENT_DYNCREATE(CMainFrame, CFrameWnd)
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_WM_CREATE()
 	ON_COMMAND(ID_START, &CMainFrame::OnStart)
+	ON_UPDATE_COMMAND_UI(ID_SETORIGIN, &CMainFrame::OnUpdateSetorigin)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -151,11 +153,17 @@ void CMainFrame::OnStart()
 	GpsObjectManager::instance()->getGpsObject(1)->StartDataThread(0);
 
 
-	//GpsObjectManager::instance()->getGpsObject(2)->setNetParameters("222.73.198.140",6011);
+	//GpsObjectManager::instance()->getGpsObject(2)->setNetParameters(IP_Address1,IP_Port2,false);
 	//GpsObjectManager::instance()->getGpsObject(2)->StartDataThread(0);
 
 
 	//GpsObjectManager::instance()->getGpsObject(2)->setNetParameters("222.73.198.140",6011);
 	globalobjectManager::instance()->enableStartDraw(true);
 	MessageBox(_T("Æô¶¯"));
+}
+
+void CMainFrame::OnUpdateSetorigin(CCmdUI *pCmdUI)
+{
+	// TODO: Add your command update UI handler code here
+	pCmdUI->Enable(TRUE);
 }

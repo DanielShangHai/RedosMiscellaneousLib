@@ -40,6 +40,7 @@ protected:
 	virtual BOOL OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext);
 public:
 	afx_msg void OnStart();
+	afx_msg void OnUpdateSetorigin(CCmdUI *pCmdUI);
 };
 
 
