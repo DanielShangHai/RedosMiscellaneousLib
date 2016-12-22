@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LineSetup xmlns="http://videojet.com/" xmlns:im="http://videojet.com/" im:type="String" im:id="{e9c0072b-c19e-495e-bd9d-5ce3ccfe6574}">
+    <im:value>LineSetup</im:value>
+    <Name im:type="String" im:id="{0bef6f04-2696-4376-bf9f-f823c6ace465}">
+        <im:value>Ab</im:value>
+    </Name>
+    <Enabled im:type="Bool" im:id="{7fe76729-8f04-42eb-8fbd-903adc5afa31}">
+        <im:value>true</im:value>
+    </Enabled>
+    <Active im:type="Bool" im:id="{90562018-2f3c-47b7-9ff8-5c26ee2dbd42}">
+        <im:value>false</im:value>
+    </Active>
+    <WizardCompleted im:type="Bool" im:id="{d35912f4-e643-4d3c-b183-fdffecd8eb12}">
+        <im:value>true</im:value>
+    </WizardCompleted>
+    <LineSetupContainer im:type="String" im:id="{62835f1d-9bb3-4c24-8c32-bbf65467160e}"/>
+    <Wizard im:type="String" im:id="{299717a7-42c1-4ff4-88de-a0b73f4a1a35}">
+        <ContextString im:type="String" im:id="{7f5fda47-7310-4619-9c7c-05a5861083bf}">
+            <im:value>ContextString</im:value>
+        </ContextString>
+        <QmlFile im:type="String" im:id="{3a6035c3-d3c0-4706-83f8-5763b7f538e1}">
+            <im:value>qrc:///Plugins/LineSetup/LineSetupCreateStep6.qml</im:value>
+        </QmlFile>
+        <Controls im:type="String" im:id="{b3914499-b8db-4159-b233-faab9bdd583e}">
+            <Next im:type="String" im:id="{a68a91c5-b289-4a84-80c2-138904e796ef}">
+                <Visible im:type="Bool" im:id="{8430a198-c644-4b1a-831a-e0805bb09f1b}">
+                    <im:value>true</im:value>
+                </Visible>
+                <Enabled im:type="Bool" im:id="{23240843-0f9a-4da5-9813-774aa454629a}">
+                    <im:value>true</im:value>
+                </Enabled>
+                <Label im:type="String" im:id="{bc8129e0-1b5a-4c7e-96aa-523ca8d5d961}">
+                    <im:value>Done</im:value>
+                </Label>
+            </Next>
+            <Cancel im:type="String" im:id="{631c769f-ee36-4285-b602-9c4f08a5dd18}">
+                <Visible im:type="Bool" im:id="{ca69ba70-fb1d-4a1c-ba9c-3b1bb39e7a6d}">
+                    <im:value>true</im:value>
+                </Visible>
+                <Enabled im:type="Bool" im:id="{8bf6b6b8-2181-49a8-8928-db085b9493ae}">
+                    <im:value>true</im:value>
+                </Enabled>
+                <Label im:type="String" im:id="{20c8534c-e450-4d19-ac0a-a9f7f6de3cb2}">
+                    <im:value>Cancel</im:value>
+                </Label>
+            </Cancel>
+        </Controls>
+        <Step im:type="String" im:id="{64bea52e-b4a5-428d-8945-238e6cb58b38}">
+            <im:value>Step 1</im:value>
+            <Visible im:type="Bool" im:id="{14031896-3fb0-42e5-bf5b-652623823143}">
+                <im:value>true</im:value>
+            </Visible>
+            <Enabled im:type="Bool" im:id="{c3a132c4-2289-4d6e-b47e-dda0bf041de2}">
+                <im:value>true</im:value>
+            </Enabled>
+            <Active im:type="Bool" im:id="{f89391da-fb05-4b13-9506-7edc323212ec}">
+                <im:value>false</im:value>
+            </Active>
+            <Index im:type="Int32" im:id="{ebae6b90-6220-4ed2-9a24-c632ac977420}">
+                <im:value>0:-2147483648:2147483647:0</im:value>
+            </Index>
+            <Validated im:type="Bool" im:id="{fa32350f-7869-4564-8fe8-40409766f84a}">
+                <im:value>true</im:value>
+            </Validated>
+            <Selected im:type="Bool" im:id="{893c5994-d48e-4bbb-9990-60efcfa99516}">
+                <im:value>false</im:value>
+            </Selected>
+            <DisplayName im:type="String" im:id="{916a7ba1-c71d-4c5b-bbb7-4575d9f2ed8f}">
+                <im:value>Step 1</im:value>
+            </DisplayName>
+            <QmlFile im:type="String" im:id="{925938ed-a125-4945-9f4c-ea5edd79664a}">
+                <im:value>qrc:///Plugins/LineSetup/LineSetupCreateStep1.qml</im:value>
+            </QmlFile>
+        </Step>
+        <Step im:type="String" im:id="{a39b4636-5f95-4c85-a173-9630fab61c39}">
+            <im:value>Step 2</im:value>
+            <Visible im:type="Bool" im:id="{33eba501-d87c-427a-883e-be8fde8d6a52}">
+                <im:value>true</im:value>
+            </Visible>
+            <Enabled im:type="Bool" im:id="{b209d017-f920-4f1c-8870-31b195449a98}">
+                <im:value>true</im:value>
+            </Enabled>
+            <Active im:type="Bool" im:id="{425d1b35-e2a2-4a8f-a64d-c6f4101d4c37}">
+                <im:value>false</im:value>
+            </Active>
+            <Index im:type="Int32" im:id="{633ab977-9b2f-4fd6-aed2-3adb54f57b8a}">
+                <im:value>1:-2147483648:2147483647:1</im:value>
+            </Index>
+            <Validated im:type="Bool" im:id="{981f2e08-336d-4a68-9e58-a06b9d5d7713}">
+                <im:value>true</im:value>
+            </Validated>
+            <Selected im:type="Bool" im:id="{4ac71bff-a1bd-424d-9ebc-6d69404b2f5d}">
+                <im:value>false</im:value>
+            </Selected>
+            <DisplayName im:type="String" im:id="{42fc3833-1426-42c4-8f46-d4aa2c5c69f2}">
+                <im:value>Step 2</im:value>
+            </DisplayName>
+            <QmlFile im:type="String" im:id="{6396de25-7482-485d-8458-5a94e4960dd8}">
+                <im:value>qrc:///Plugins/LineSetup/LineSetupCreateStep2.qml</im:value>
+            </QmlFile>
+        </Step>
+        <Step im:type="String" im:id="{aa1ea3b7-f37d-47b4-9129-d6adbf37e8bf}">
+            <im:value>Step 3</im:value>
+            <Visible im:type="Bool" im:id="{5d400325-93b2-438f-9024-54280c9e4baf}">
+                <im:value>true</im:value>
+            </Visible>
+            <Enabled im:type="Bool" im:id="{c7fecd6c-4557-4e01-98b4-47ad9fee9324}">
+                <im:value>true</im:value>
+            </Enabled>
+            <Active im:type="Bool" im:id="{723f2204-4954-4071-a1f5-86e24a5c9156}">
+                <im:value>false</im:value>
+            </Active>
+            <Index im:type="Int32" im:id="{41b9613d-17e3-45fd-9e92-fdb8f0a6cebe}">
+                <im:value>2:-2147483648:2147483647:2</im:value>
+            </Index>
+            <Validated im:type="Bool" im:id="{7bbdea18-d044-4c1a-81a7-932fc558c24c}">
+                <im:value>true</im:value>
+            </Validated>
+            <Selected im:type="Bool" im:id="{fbe7d32b-7e75-4830-b617-59ae90c2309b}">
+                <im:value>false</im:value>
+            </Selected>
+            <DisplayName im:type="String" im:id="{146389bd-84f6-48ec-af15-2dc3698e668b}">
+                <im:value>Step 3</im:value>
+            </DisplayName>
+            <QmlFile im:type="String" im:id="{5382fa53-90de-4f02-afb6-9ec6067c1b22}">
+                <im:value>qrc:///Plugins/LineSetup/LineSetupCreateStep3.qml</im:value>
+            </QmlFile>
+        </Step>
+        <Step im:type="String" im:id="{34d0100b-0f13-4980-ac9a-488df269b9bd}">
+            <im:value>Step 4</im:value>
+            <Visible im:type="Bool" im:id="{4624705f-c300-4a2e-bfe2-a6edcaf1f2b7}">
+                <im:value>true</im:value>
+            </Visible>
+            <Enabled im:type="Bool" im:id="{a7d5660a-5596-422d-8a31-d01f154bf88d}">
+                <im:value>true</im:value>
+            </Enabled>
+            <Active im:type="Bool" im:id="{ed40fa31-a5e9-4b32-afcb-7cb86907cc2a}">
+                <im:value>false</im:value>
+            </Active>
+            <Index im:type="Int32" im:id="{7814d575-f542-4d4b-b20d-6465a75ea5e8}">
+                <im:value>3:-2147483648:2147483647:3</im:value>
+            </Index>
+            <Validated im:type="Bool" im:id="{70f52e37-c068-4165-b9d6-d46480e4083b}">
+                <im:value>true</im:value>
+            </Validated>
+            <Selected im:type="Bool" im:id="{abd53bb9-ef8b-48b7-a6ba-b799f5218be3}">
+                <im:value>false</im:value>
+            </Selected>
+            <DisplayName im:type="String" im:id="{8e4c4855-94e2-4ee0-9e45-d596617d1943}">
+                <im:value>Step 4</im:value>
+            </DisplayName>
+            <QmlFile im:type="String" im:id="{f55564cc-1fb4-4bd1-8a84-93e13fc5fa97}">
+                <im:value>qrc:///Plugins/LineSetup/LineSetupCreateStep4.qml</im:value>
+            </QmlFile>
+        </Step>
+        <Step im:type="String" im:id="{64c4d10a-057a-4741-befc-b31e661afd79}">
+            <im:value>Step 5</im:value>
+            <Visible im:type="Bool" im:id="{64a0f600-cf98-433c-b9e9-fd9b2138cb93}">
+                <im:value>true</im:value>
+            </Visible>
+            <Enabled im:type="Bool" im:id="{6a881b8f-b3f3-41e3-b8ee-889f286761df}">
+                <im:value>true</im:value>
+            </Enabled>
+            <Active im:type="Bool" im:id="{6fe069af-5858-4636-b45e-2f56930c7401}">
+                <im:value>false</im:value>
+            </Active>
+            <Index im:type="Int32" im:id="{d74dd529-1191-4ddd-9a39-cc7da0eda993}">
+                <im:value>4:-2147483648:2147483647:4</im:value>
+            </Index>
+            <Validated im:type="Bool" im:id="{cdeb9e56-242d-41a8-8eaa-a72d3959d97a}">
+                <im:value>true</im:value>
+            </Validated>
+            <Selected im:type="Bool" im:id="{7661d32e-6505-4973-92f8-6a4efafb5dd0}">
+                <im:value>false</im:value>
+            </Selected>
+            <DisplayName im:type="String" im:id="{ab23dad2-27f9-4194-8908-ce15645de941}">
+                <im:value>Step 5</im:value>
+            </DisplayName>
+            <QmlFile im:type="String" im:id="{393a961d-7efb-400b-a5d6-59291d49de30}">
+                <im:value>qrc:///Plugins/LineSetup/LineSetupCreateStep5.qml</im:value>
+            </QmlFile>
+        </Step>
+        <Step im:type="String" im:id="{c892d468-8fc4-4d51-a784-df9dcd25386b}">
+            <im:value>Step 6</im:value>
+            <Visible im:type="Bool" im:id="{726324a8-e62a-4199-990b-8ba0e43697e2}">
+                <im:value>true</im:value>
+            </Visible>
+            <Enabled im:type="Bool" im:id="{d6d23ddc-7785-4c6c-8e3c-6c8dc86afd1f}">
+                <im:value>true</im:value>
+            </Enabled>
+            <Active im:type="Bool" im:id="{657d4f3d-db52-4a44-b7e8-519966770e81}">
+                <im:value>false</im:value>
+            </Active>
+            <Index im:type="Int32" im:id="{fb77f9b6-cb48-4fe7-86a2-58fa69906a6a}">
+                <im:value>5:-2147483648:2147483647:5</im:value>
+            </Index>
+            <Validated im:type="Bool" im:id="{b065b329-54df-43c5-8182-c2d1f6e211df}">
+                <im:value>true</im:value>
+            </Validated>
+            <Selected im:type="Bool" im:id="{d1d92731-c77d-4ff5-bf9a-0b0b8ecdf025}">
+                <im:value>true</im:value>
+            </Selected>
+            <DisplayName im:type="String" im:id="{676914da-8b5d-4041-b3cf-154b54865a28}">
+                <im:value>Step 6</im:value>
+            </DisplayName>
+            <QmlFile im:type="String" im:id="{f8ad0817-f9dd-40d1-9281-04648fe543a1}">
+                <im:value>qrc:///Plugins/LineSetup/LineSetupCreateStep6.qml</im:value>
+            </QmlFile>
+        </Step>
+    </Wizard>
+</LineSetup>

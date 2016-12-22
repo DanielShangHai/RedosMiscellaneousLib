@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<LineSetup im:type="String" xmlns:im="http://videojet.com/" xmlns="http://videojet.com/" im:id="{cff6e62e-1f4d-4d8a-9179-04eec93bd029}">
+ <im:value>LineSetup</im:value>
+ <Name im:type="String" im:id="{5c603f33-939f-48ea-8e45-54b13a1e59db}">
+  <im:value>LineSetup1</im:value>
+ </Name>
+ <Enabled im:type="Bool" im:id="{637fe26d-52aa-47ef-983d-46053bbbddbc}">
+  <im:value>true</im:value>
+ </Enabled>
+ <Active im:type="Bool" im:id="{fb287428-5d5e-4f1d-9591-3a8acfb79d77}">
+  <im:value>false</im:value>
+ </Active>
+ <WizardCompleted im:type="Bool" im:id="{68230122-4404-4433-aaaf-388f08f18932}">
+  <im:value>false</im:value>
+ </WizardCompleted>
+ <LineSetupContainer im:type="String" im:id="{fb5ec10d-6b56-4da2-b03d-178f64634972}">
+  <Data1 im:type="String" im:id="{92ac23cd-1de9-485c-be02-d92b8f75cbc2}"/>
+  <Data2 im:type="String" im:id="{e1fbbdaa-9bb2-4606-8e5a-4ad16cefab9d}"/>
+ </LineSetupContainer>
+</LineSetup>
